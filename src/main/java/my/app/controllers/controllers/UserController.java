@@ -10,18 +10,17 @@ import java.util.ArrayList;
 
 
 @Controller
-@RequestMapping(value = "/")
 public class UserController {
 
 
-    public static final String ALL_USERS_PAGE = "allUsers";
-    public static final String ADD_USER_PAGE = "addUser";
+    public static final String ALL_USERS_PAGE = "AllUsers";
+    public static final String ADD_USER_PAGE = "AddUser";
     ArrayList<User> list = new ArrayList<User>();
 
 
     @RequestMapping(value = "/add/user", method = RequestMethod.GET)
     public String showPageAddUser(ModelMap model) {
-        // model.addAttribute("inspection", "add");
+
         return ADD_USER_PAGE;
     }
 
