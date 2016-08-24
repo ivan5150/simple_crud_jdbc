@@ -5,11 +5,17 @@ package my.app.controllers.dao;
         import java.sql.SQLException;
 
 public class ConnectionFactory {
-
+    /*
     public static final String H2_DRIVER = "com.mysql.jdbc.Driver";
     public static final String DB_URL = "jdbc:mysql://localhost:3306/5150";
     public static final String LOGIN = "root";
     public static final String PASSWORD = "root";
+    */
+
+    public static final String DB_URL = "jdbc:h2:file:D:/H2/test"; //"jdbc:h2:~/test";
+    public static final String LOGIN = "sa";
+    public static final String PASSWORD = "";
+    public static final String H2_DRIVER = "org.h2.Driver";
 
     private static ConnectionFactory instance;
 

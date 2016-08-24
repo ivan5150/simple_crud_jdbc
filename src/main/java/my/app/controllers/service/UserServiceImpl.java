@@ -10,31 +10,31 @@ package my.app.controllers.service;
 
 public class UserServiceImpl implements UserService {
 
-    //@Override
+    @Override
     public User getById(long id) {
         UserDao userDao = new UserDaoJdbcImpl(ConnectionFactory.getInstance());
         return userDao.getById(id);
     }
 
-    //@Override
+    @Override
     public List<User> getAll() {
         UserDao userDao = new UserDaoJdbcImpl(ConnectionFactory.getInstance());
         return userDao.getAll();
     }
 
-    //@Override
+    @Override
     public void insert(User user) {
         UserDao userDao = new UserDaoJdbcImpl(ConnectionFactory.getInstance());
         userDao.insert(user);
     }
 
-    //@Override
+    @Override
     public void update(User user) {
         UserDao userDao = new UserDaoJdbcImpl(ConnectionFactory.getInstance());
         userDao.update(user);
     }
 
-    //@Override
+    @Override
     public void deleteById(long id) {
         UserDao userDao = new UserDaoJdbcImpl(ConnectionFactory.getInstance());
         userDao.deleteById(id);
