@@ -14,9 +14,9 @@
   </head>
   <body>
       <div class="container">
-          <h1><p class="text-center">AddUser!</p></h1>
+          <h1><p class="text-center">Add User!</p></h1>
 
-<form method="post" action="/add/user">
+<form method="post" action="/save/user"> <!-- /add/user -->
     <label for="author">User name:</label>
 
     <input type="text" id="author" name="author" placeholder="User"/>

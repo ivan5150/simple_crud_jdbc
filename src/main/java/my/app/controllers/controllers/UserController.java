@@ -30,18 +30,15 @@ public class UserController {
 
     @RequestMapping(value = "/all/users", method = RequestMethod.GET)
     public String showPageAllUsers(ModelMap model) {
-        //model.addAttribute("users", userService.getAll());
 
         return ALL_USERS_PAGE;
     }
 
-    @RequestMapping(value = "/all/users", method = RequestMethod.POST)
+    @RequestMapping(value = "/save/user", method = RequestMethod.POST)
     public String saveMessage(ModelMap model) {
         model.addAttribute("tbl", UserDaoJdbcImpl.INSERT_USER);
-
-        /*if (binding.hasErrors()) {
-            return ALL_USERS;
-        }*/
+     //   model.addAttribute("users", userService.getAll());
+     //   model.addAttribute("user", new UserServiceImpl().insert());
 
         return showPageAllUsers(model);
     }
