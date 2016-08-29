@@ -12,6 +12,9 @@ public class UserForm {
         this.id = id;
         this.name = name;
     }
+    public UserForm(){
+
+    }
 
     public String getId(){
         return id;
