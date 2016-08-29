@@ -1,9 +1,11 @@
 package my.app.controllers.controllers;
 
+import my.app.controllers.domain.User;
+
 /**
  * Created by iyarosh on 17.08.2016.
  */
-public class UserForm {
+public class UserForm  {
 
     private String id;
     private String name;

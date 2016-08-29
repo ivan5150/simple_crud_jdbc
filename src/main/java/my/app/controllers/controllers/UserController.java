@@ -29,8 +29,9 @@ public class UserController {
     @RequestMapping(value = "/add/user", method = RequestMethod.GET)
     public String showPageAddUser(ModelMap model) {
         model.addAttribute("inspection", "add");
-        //list.add(new User(Long.parseLong(userForm.getId()), userForm.getName()));
-        //service.insert(new User(Long.parseLong(userForm.getId()), userForm.getName()));
+        model.addAttribute("tbl", new UserForm());
+
+
         return ADD_USER_PAGE;
     }
 
@@ -38,7 +39,8 @@ public class UserController {
     public String AddUser(ModelMap model) {
         list.add(new User(Long.parseLong(userForm.getId()), userForm.getName()));
         service.insert(new User(Long.parseLong(userForm.getId()), userForm.getName()));
-        return ALL_USERS_PAGE;
+        return showPageAddUser(model);    //return ALL_USERS_PAGE;
+
     }
 
     @RequestMapping(value = "/all/users", method = RequestMethod.GET)
@@ -48,15 +50,17 @@ public class UserController {
     }
 
     @RequestMapping(value = "/save/user", method = RequestMethod.POST)
-    public String saveMessage1(ModelMap model, UserForm userForm) {
-
-        model.addAttribute("tbl",new UserForm());
+    public String saveMessage1(ModelMap model) {
+        model.addAttribute("tbl", new UserForm());
+        //service.insert(new User(Long.parseLong(userForm.getId()), userForm.getName()));
         return showPageAllUsers(model);
     }
 
-    private synchronized void saveMessage(UserForm userForm) {
-        list.add(new User(Long.parseLong(userForm.getId()), userForm.getName()));
-    }
+
+
+    //private synchronized void saveMessage(UserForm userForm) {
+    //    list.add(new User(Long.parseLong(userForm.getId()), userForm.getName()));
+    //}
 
 
 }
