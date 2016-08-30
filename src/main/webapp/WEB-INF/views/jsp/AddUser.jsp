@@ -16,7 +16,7 @@
       <div class="container">
           <h1><p class="text-center">Add User!</p></h1>
 
-<form method="post" action="/save/user"> <!-- /add/user -->
+<form:form method="post" action="/save/user" commandName="userForm"> <!-- /add/user -->
     <label for="author">User name:</label>
 
     <input type="text" id="author" name="author" placeholder="User"/>
@@ -28,9 +28,9 @@
     <br/>
     <br/>
 
-    <button type="submit" class="btn btn-large btn-primary">Send message</button>
+    <input type="submit" class="btn btn-large btn-primary">Send message</input>
 
-</form>
+</form:form>
 
 
 

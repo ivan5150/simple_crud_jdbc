@@ -10,10 +10,6 @@ public class UserForm  {
     private String id;
     private String name;
 
-    public UserForm(String id, String name){
-        this.id = id;
-        this.name = name;
-    }
     public UserForm(){
 
     }

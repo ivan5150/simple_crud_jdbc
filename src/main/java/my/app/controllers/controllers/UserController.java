@@ -5,8 +5,9 @@ import my.app.controllers.dao.UserDao;
 import my.app.controllers.dao.UserDaoJdbcImpl;
 import my.app.controllers.domain.User;
 //import oracle.jrockit.jfr.NativeEventControl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,8 +20,6 @@ import java.util.ArrayList;
 @Controller
 public class UserController {
 
-
-    UserForm userForm;
     public static final String ALL_USERS_PAGE = "AllUsers";
     public static final String ADD_USER_PAGE = "AddUser";
     ArrayList<User> list = new ArrayList<User>();
@@ -28,20 +27,11 @@ public class UserController {
 
     @RequestMapping(value = "/add/user", method = RequestMethod.GET)
     public String showPageAddUser(ModelMap model) {
-        model.addAttribute("inspection", "add");
-        model.addAttribute("tbl", new UserForm());
-
+        model.addAttribute("UserForm", new UserForm());
 
         return ADD_USER_PAGE;
     }
 
-    @RequestMapping(value = "/add/user", method = RequestMethod.POST)
-    public String AddUser(ModelMap model) {
-        list.add(new User(Long.parseLong(userForm.getId()), userForm.getName()));
-        service.insert(new User(Long.parseLong(userForm.getId()), userForm.getName()));
-        return showPageAddUser(model);    //return ALL_USERS_PAGE;
-
-    }
 
     @RequestMapping(value = "/all/users", method = RequestMethod.GET)
     public String showPageAllUsers(ModelMap model) {
@@ -50,17 +40,14 @@ public class UserController {
     }
 
     @RequestMapping(value = "/save/user", method = RequestMethod.POST)
-    public String saveMessage1(ModelMap model) {
-        model.addAttribute("tbl", new UserForm());
-        //service.insert(new User(Long.parseLong(userForm.getId()), userForm.getName()));
-        return showPageAllUsers(model);
+    public String saveUser(@Validated UserForm userForm, BindingResult bindingResult) {
+        list.add(new User(Long.parseLong(userForm.getId()), userForm.getName()));
+        service.insert(new User(Long.parseLong(userForm.getId()), userForm.getName()));
+
+        return showPageAddUser(new ModelMap());    //return ALL_USERS_PAGE;
+
     }
 
-
-
-    //private synchronized void saveMessage(UserForm userForm) {
-    //    list.add(new User(Long.parseLong(userForm.getId()), userForm.getName()));
-    //}
 
 
 }
