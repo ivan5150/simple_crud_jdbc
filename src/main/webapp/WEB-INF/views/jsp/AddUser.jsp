@@ -17,14 +17,13 @@
           <h1><p class="text-center">Add User!</p></h1>
 
 <form:form method="post" action="/save/user" commandName="userForm"> <!-- /add/user -->
-    <label for="author">User name:</label>
-
-    <input type="text" id="author" name="author" placeholder="User"/>
+    <label for="id">User ID:</label>
+    <form:input type="text" id="id" path="id" placeholder="User id"/>
     <br/>
     <br/>
-    <label for="text">ID:</label>
 
-    <input type="text" id="text" name="text" placeholder="ID"/>
+    <label for="name">User Name:</label>
+    <form:input type="text" id="name" path="name" placeholder="User name"/>
     <br/>
     <br/>
 

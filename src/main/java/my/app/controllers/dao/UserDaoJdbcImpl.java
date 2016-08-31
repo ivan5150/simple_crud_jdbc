@@ -13,13 +13,13 @@ import java.util.List;
 public class UserDaoJdbcImpl implements UserDao {
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_NAME = "name";
-    public static final String SELECT_BY_ID_QUERY = "SELECT * FROM tbl WHERE id = ?";     //tbl - user(table)
+    public static final String SELECT_BY_ID_QUERY = "SELECT * FROM user WHERE id = ?";     //tbl - user(table)
    // public static final String INSERT_USER = "INSERT INTO user (firstName, lastName) VALUES (?, ?)";
-    public static final String INSERT_USER = "INSERT INTO tbl (id, name) VALUES (?, ?)";  //tbl - user(table)
-    public static final String SELECT_FROM_ALL_USER = "SELECT * FROM tbl";
+    public static final String INSERT_USER = "INSERT INTO user (id, name) VALUES (?, ?)";  //tbl - user(table)
+    public static final String SELECT_FROM_ALL_USER = "SELECT * FROM user";
     //public static final String UPDATES_USER = "UPDATE user SET firstName = ?, lastName = ? WHERE id = ?";
-    public static final String UPDATES_USER = "UPDATE tbl SET name = ? WHERE id = ?";    //tbl - user(table)
-    public static final String DELETE_USER = "DELETE FROM tbl WHERE id = ?";             //tbl - user(table)
+    public static final String UPDATES_USER = "UPDATE user SET name = ? WHERE id = ?";    //tbl - user(table)
+    public static final String DELETE_USER = "DELETE FROM user WHERE id = ?";             //tbl - user(table)
 
 
 

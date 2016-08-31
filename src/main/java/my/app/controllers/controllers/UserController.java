@@ -23,7 +23,7 @@ public class UserController {
     public static final String ALL_USERS_PAGE = "AllUsers";
     public static final String ADD_USER_PAGE = "AddUser";
     ArrayList<User> list = new ArrayList<User>();
-    UserService service = new UserServiceImpl();
+    //UserService service = new UserServiceImpl();
 
     @RequestMapping(value = "/add/user", method = RequestMethod.GET)
     public String showPageAddUser(ModelMap model) {
@@ -42,9 +42,9 @@ public class UserController {
     @RequestMapping(value = "/save/user", method = RequestMethod.POST)
     public String saveUser(@Validated UserForm userForm, BindingResult bindingResult) {
         list.add(new User(Long.parseLong(userForm.getId()), userForm.getName()));
-        service.insert(new User(Long.parseLong(userForm.getId()), userForm.getName()));
+        //service.insert(new User(Long.parseLong(userForm.getId()), userForm.getName()));
 
-        return showPageAddUser(new ModelMap());    //return ALL_USERS_PAGE;
+        return showPageAddUser(new ModelMap());
 
     }
 

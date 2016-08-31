@@ -10,9 +10,6 @@ public class UserForm  {
     private String id;
     private String name;
 
-    public UserForm(){
-
-    }
 
     public String getId(){
         return id;
