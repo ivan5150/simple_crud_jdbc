@@ -17,7 +17,7 @@
           <h1><p class="text-center">Add User!</p></h1>
 
 <form:form method="post" action="/save/user" commandName="userForm"> <!-- /add/user -->
-    <label for="id">User ID:</label>
+    <label for="id">User ID</label>
     <form:input type="text" id="id" path="id" placeholder="User id"/>
     <br/>
     <br/>
@@ -32,8 +32,6 @@
 </form:form>
 
 
-
-    <script src="http://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
       </div>
   </body>

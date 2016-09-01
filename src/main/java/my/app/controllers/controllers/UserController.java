@@ -28,26 +28,23 @@ public class UserController {
     @RequestMapping(value = "/add/user", method = RequestMethod.GET)
     public String showPageAddUser(ModelMap model) {
         model.addAttribute("UserForm", new UserForm());
-
         return ADD_USER_PAGE;
     }
 
 
     @RequestMapping(value = "/all/users", method = RequestMethod.GET)
     public String showPageAllUsers(ModelMap model) {
-
         return ALL_USERS_PAGE;
     }
 
     @RequestMapping(value = "/save/user", method = RequestMethod.POST)
-    public String saveUser(@Validated UserForm userForm, BindingResult bindingResult) {
+    public String saveUser(@Validated UserForm userForm, Integer id, String name, BindingResult bindingResult) {
         list.add(new User(Long.parseLong(userForm.getId()), userForm.getName()));
         //service.insert(new User(Long.parseLong(userForm.getId()), userForm.getName()));
 
         return showPageAddUser(new ModelMap());
 
     }
-
 
 
 }
