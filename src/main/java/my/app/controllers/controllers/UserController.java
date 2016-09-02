@@ -23,7 +23,6 @@ public class UserController {
     public static final String ALL_USERS_PAGE = "AllUsers";
     public static final String ADD_USER_PAGE = "AddUser";
     ArrayList<User> list = new ArrayList<User>();
-    //UserService service = new UserServiceImpl();
 
     @RequestMapping(value = "/add/user", method = RequestMethod.GET)
     public String showPageAddUser(ModelMap model) {
@@ -36,6 +35,7 @@ public class UserController {
     public String showPageAllUsers(ModelMap model) {
         return ALL_USERS_PAGE;
     }
+
 
     @RequestMapping(value = "/save/user", method = RequestMethod.POST)
     public String saveUser(@Validated UserForm userForm, Integer id, String name, BindingResult bindingResult) {

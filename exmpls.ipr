@@ -81,7 +81,7 @@
     </annotationProcessing>
   </component>
   <component name="CopyrightManager" default="" />
-  <component name="DataSourceManagerImpl" format="xml" hash="2642846436">
+  <component name="DataSourceManagerImpl" format="xml" hash="313965528">
     <data-source source="LOCAL" name="H2 - default@localhost" uuid="56cfd250-7310-4ee2-aaf6-a38b03e4bba7">
       <driver-ref>h2.unified</driver-ref>
       <synchronize>true</synchronize>
@@ -100,6 +100,12 @@
         <property name="characterSetResults" value="utf8" />
         <property name="yearIsDateType" value="false" />
       </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="H2_exmpls" uuid="d89569e4-0238-47db-8a91-11ae42e3a7ad">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:D:/H2</jdbc-url>
     </data-source>
   </component>
   <component name="DependencyValidationManager">
@@ -299,6 +305,11 @@
     <data-source name="MySQL - @localhost" uuid="b762a73d-dded-4e35-8214-af91b451e943">
       <secret-storage>master_key</secret-storage>
       <first-sync>true</first-sync>
+    </data-source>
+    <data-source name="H2_exmpls" uuid="d89569e4-0238-47db-8a91-11ae42e3a7ad">
+      <secret-storage>master_key</secret-storage>
+      <schema-pattern>H2.*</schema-pattern>
+      <default-schemas>H2.*</default-schemas>
     </data-source>
   </component>
   <component name="libraryTable">
