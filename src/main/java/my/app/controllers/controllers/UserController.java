@@ -38,7 +38,7 @@ public class UserController {
 
 
     @RequestMapping(value = "/save/user", method = RequestMethod.POST)
-    public String saveUser(@Validated UserForm userForm, Integer id, String name, BindingResult bindingResult) {
+    public String saveUser(@Validated UserForm userForm, BindingResult bindingResult) {
         list.add(new User(Long.parseLong(userForm.getId()), userForm.getName()));
         //service.insert(new User(Long.parseLong(userForm.getId()), userForm.getName()));
         User e = new User(Long.parseLong(userForm.getId()), userForm.getName());

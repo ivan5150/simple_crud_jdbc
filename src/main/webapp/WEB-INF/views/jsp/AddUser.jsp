@@ -15,7 +15,7 @@
   <body>
       <div class="container">
           <h1><p class="text-center">Add User!</p></h1>
-
+          <p align="right"><a class="btn btn-info btn-xs" href="/all/users" role="button">all users page</a></p>
 <form:form method="post" action="/save/user" commandName="userForm"> <!-- /add/user -->
     <label for="id">User ID</label>
     <form:input type="text" id="id" path="id" placeholder="User id"/>
