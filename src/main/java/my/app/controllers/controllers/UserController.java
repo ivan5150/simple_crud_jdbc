@@ -8,11 +8,13 @@ import my.app.controllers.domain.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMethod;
 import my.app.controllers.service.UserService;
 import my.app.controllers.service.UserServiceImpl;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
 
@@ -33,6 +35,7 @@ public class UserController {
 
     @RequestMapping(value = "/all/users", method = RequestMethod.GET)
     public String showPageAllUsers(ModelMap model) {
+        model.addAttribute("users", new UserServiceImpl().getAll());
         return ALL_USERS_PAGE;
     }
 
@@ -40,12 +43,16 @@ public class UserController {
     @RequestMapping(value = "/save/user", method = RequestMethod.POST)
     public String saveUser(@Validated UserForm userForm, BindingResult bindingResult) {
         list.add(new User(Long.parseLong(userForm.getId()), userForm.getName()));
-        //service.insert(new User(Long.parseLong(userForm.getId()), userForm.getName()));
         User e = new User(Long.parseLong(userForm.getId()), userForm.getName());
         new UserServiceImpl().insert(e);
 
         return showPageAddUser(new ModelMap());
+    }
 
+    @RequestMapping(value = "/delete/user/{id}", method = RequestMethod.GET)
+    public RedirectView deleteUser(@PathVariable(value = "id") Long id) {
+        new UserServiceImpl().deleteById(id);
+        return new RedirectView("/all/users");
     }
 
 

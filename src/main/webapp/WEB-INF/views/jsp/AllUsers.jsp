@@ -27,9 +27,9 @@
                     <td>
                         <p>
                             <a class="btn btn-danger btn-xs" href="/delete/user/${user.id}" role="button">delete</a>
-                            <a class="btn btn-default btn-xs" href="/save/user/${user.id}" role="button">edit</a>
-                            <a class="btn btn-info btn-xs" href="/user/save/purse/${user.id}" role="button">add
-                                purse</a>
+                                <%-- <a class="btn btn-default btn-xs" href="/save/user/${user.id}" role="button">edit</a>   --%>
+                               <%--  <a class="btn btn-info btn-xs" href="/user/save/purse/${user.id}" role="button">add</a>  --%>
+                            <a class="btn btn-info btn-xs" href="/add/user" role="button">add new user</a>
                         </p>
                     </td>
                 </tr>
