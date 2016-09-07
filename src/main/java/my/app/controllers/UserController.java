@@ -32,7 +32,7 @@ public class UserController {
     @RequestMapping(value = "/all/users", method = RequestMethod.GET)
     public String showPageAllUsers(ModelMap model) {
         model.addAttribute("users", new UserServiceImpl().getAll());
-                                                                model.addAttribute("userForm", new UserForm());//
+
         return ALL_USERS_PAGE;
     }
 
@@ -42,8 +42,9 @@ public class UserController {
         User e = new User(Long.parseLong(userForm.getId()), userForm.getName());
         new UserServiceImpl().insert(e);
 
-     //   return showPageAddUser(new ModelMap());
-        return showPageAllUsers(new ModelMap()); //users don't receive
+        //return showPageAddUser(new ModelMap());
+                                                                return showPageAllUsers(new ModelMap()); //users don't receive
+
     }
 
     @RequestMapping(value = "/delete/user/{id}", method = RequestMethod.GET)

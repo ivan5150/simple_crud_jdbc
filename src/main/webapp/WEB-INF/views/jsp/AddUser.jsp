@@ -27,7 +27,7 @@
     <br/>
     <br/>
 
-    <input type="submit" class="btn btn-large btn-primary"  >Send message</input>
+    <input type="submit" class="btn btn-large btn-primary" action="/save/user" >Send message</input>
 
 </form:form>
 
