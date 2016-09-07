@@ -1,9 +1,7 @@
 
-package my.app.controllers.controllers;
+package my.app.controllers;
 
-import my.app.controllers.dao.UserDao;
-import my.app.controllers.dao.UserDaoJdbcImpl;
-import my.app.controllers.domain.User;
+import my.app.domain.User;
 //import oracle.jrockit.jfr.NativeEventControl;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -12,8 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMethod;
-import my.app.controllers.service.UserService;
-import my.app.controllers.service.UserServiceImpl;
+import my.app.service.UserServiceImpl;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;

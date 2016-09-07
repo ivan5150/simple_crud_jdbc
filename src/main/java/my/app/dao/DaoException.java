@@ -1,4 +1,4 @@
-package my.app.controllers.dao;
+package my.app.dao;
 
 
 public class DaoException extends RuntimeException {

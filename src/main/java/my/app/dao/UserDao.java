@@ -1,6 +1,6 @@
-package my.app.controllers.dao;
+package my.app.dao;
 
-        import my.app.controllers.domain.User;
+        import my.app.domain.User;
         import java.util.List;
 
 public interface UserDao {

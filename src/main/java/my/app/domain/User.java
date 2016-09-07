@@ -1,4 +1,4 @@
-package my.app.controllers.domain;
+package my.app.domain;
 
 public class User {
 

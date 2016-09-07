@@ -1,10 +1,10 @@
-package my.app.controllers.service;
+package my.app.service;
 
 
-        import my.app.controllers.dao.ConnectionFactory;
-        import my.app.controllers.dao.UserDao;
-        import my.app.controllers.dao.UserDaoJdbcImpl;
-        import my.app.controllers.domain.User;
+        import my.app.dao.ConnectionFactory;
+        import my.app.dao.UserDao;
+        import my.app.dao.UserDaoJdbcImpl;
+        import my.app.domain.User;
 
         import java.util.List;
 

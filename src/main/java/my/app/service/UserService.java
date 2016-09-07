@@ -1,6 +1,6 @@
-package my.app.controllers.service;
+package my.app.service;
 
-import my.app.controllers.domain.User;
+import my.app.domain.User;
 
 import java.util.List;
 

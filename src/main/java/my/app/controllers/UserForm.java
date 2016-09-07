@@ -1,6 +1,4 @@
-package my.app.controllers.controllers;
-
-import my.app.controllers.domain.User;
+package my.app.controllers;
 
 
 public class UserForm  {
