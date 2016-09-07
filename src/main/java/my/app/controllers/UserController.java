@@ -29,27 +29,36 @@ public class UserController {
         return ADD_USER_PAGE;
     }
 
-
     @RequestMapping(value = "/all/users", method = RequestMethod.GET)
     public String showPageAllUsers(ModelMap model) {
         model.addAttribute("users", new UserServiceImpl().getAll());
+                                                                model.addAttribute("userForm", new UserForm());//
         return ALL_USERS_PAGE;
     }
 
-
     @RequestMapping(value = "/save/user", method = RequestMethod.POST)
     public String saveUser(@Validated UserForm userForm, BindingResult bindingResult) {
-        list.add(new User(Long.parseLong(userForm.getId()), userForm.getName()));
+        //list.add(new User(Long.parseLong(userForm.getId()), userForm.getName()));
         User e = new User(Long.parseLong(userForm.getId()), userForm.getName());
         new UserServiceImpl().insert(e);
 
-        return showPageAddUser(new ModelMap());
+     //   return showPageAddUser(new ModelMap());
+        return showPageAllUsers(new ModelMap()); //users don't receive
     }
 
     @RequestMapping(value = "/delete/user/{id}", method = RequestMethod.GET)
     public RedirectView deleteUser(@PathVariable(value = "id") Long id) {
         new UserServiceImpl().deleteById(id);
         return new RedirectView("/all/users");
+    }
+
+    @RequestMapping(value = "/save/user/{id}", method = RequestMethod.GET)
+    public String editUser(@PathVariable(value = "id") Long id, ModelMap model) {
+        if ( new UserServiceImpl().getById(id) == null) {
+            return ALL_USERS_PAGE;
+        }
+        model.addAttribute("userForm", new UserServiceImpl().getById(id));
+        return ADD_USER_PAGE;
     }
 
 

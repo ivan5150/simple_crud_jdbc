@@ -7,6 +7,7 @@ public class UserForm  {
     private String name;
 
     public UserForm(){}
+    public UserForm(long id){}
 
 
     public String getId(){
