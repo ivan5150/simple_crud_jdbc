@@ -4,7 +4,7 @@
 
 <?xml version="1.0" encoding="UTF-8" ?>
 <html>
-<head>
+<head><a href="css/bootstrap.css" rel="stylesheet" media="screen"></a>
     <title>All User</title>
 </head>
 <body>
