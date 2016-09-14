@@ -14,7 +14,6 @@ import my.app.service.UserServiceImpl;
 import org.springframework.web.servlet.view.RedirectView;
 
 
-
 @Controller
 public class UserController {
 
@@ -36,12 +35,20 @@ public class UserController {
 
     @RequestMapping(value = "/save/user", method = RequestMethod.POST)
     public RedirectView saveUser(@Validated UserForm userForm, BindingResult bindingResult) {
-        User user = new User(Long.parseLong(userForm.getId()), userForm.getName());
-        new UserServiceImpl().insert(user);
+//        User user = new User(Long.parseLong(userForm.getId()), userForm.getName());
+        if (isIdEmpty(userForm)) {
+            User user = new User(userForm.getName());
+            new UserServiceImpl().insert(user);
+        } else {
+            User user = new User(Long.parseLong(userForm.getId()), userForm.getName());
+            new UserServiceImpl().update(user);
+        }
+        return new RedirectView("/all/users"); // for redirect may be    return "redirect:/all/users";
 
-        //return showPageAddUser(new ModelMap());
-        //return showPageAllUsers(new ModelMap()); //users don't receive
-        return new RedirectView("/all/users");
+    }
+
+    private boolean isIdEmpty(@Validated UserForm userForm) {
+        return userForm.getId() == null || "".equals(userForm.getId());
     }
 
     @RequestMapping(value = "/delete/user/{id}", method = RequestMethod.GET)
@@ -52,7 +59,7 @@ public class UserController {
 
     @RequestMapping(value = "/save/user/{id}", method = RequestMethod.GET)
     public String editUser(@PathVariable(value = "id") Long id, ModelMap model) {
-        if ( new UserServiceImpl().getById(id) == null) {
+        if (new UserServiceImpl().getById(id) == null) {
             return ALL_USERS_PAGE;
         }
         model.addAttribute("userForm", new UserServiceImpl().getById(id));

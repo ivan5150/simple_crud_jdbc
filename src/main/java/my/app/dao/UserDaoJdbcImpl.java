@@ -14,7 +14,7 @@ public class UserDaoJdbcImpl implements UserDao {
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_NAME = "name";
     public static final String SELECT_BY_ID_QUERY = "SELECT * FROM user WHERE id = ?";
-   // public static final String INSERT_USER = "INSERT INTO user (firstName, lastName) VALUES (?, ?)";
+    // public static final String INSERT_USER = "INSERT INTO user (firstName, lastName) VALUES (?, ?)";
     public static final String INSERT_USER = "INSERT INTO user (id, name) VALUES (?, ?)";
     public static final String SELECT_FROM_ALL_USER = "SELECT * FROM user";
     //public static final String UPDATES_USER = "UPDATE user SET firstName = ?, lastName = ? WHERE id = ?";
@@ -22,12 +22,10 @@ public class UserDaoJdbcImpl implements UserDao {
     public static final String DELETE_USER = "DELETE FROM user WHERE id = ?";
 
 
-
     public static final String KEYWORD_FOR_EXIT = "--stop";
     public static final String KEYWORD_FOR_ALL_MESSAGES = "--all";
     public static final String MESSAGES_BY_AUTHOR_QUERY = "SELECT * FROM messages WHERE author = ?;";
     public static final String ALL_MESSAGES_QUERY = "SELECT * FROM messages;";
-
 
 
     private ConnectionFactory connectionFactory;
