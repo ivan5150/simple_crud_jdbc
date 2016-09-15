@@ -14,8 +14,9 @@
 </head>
 <body>
 <div class="container">
-    <h1><p class="text-center">Add User!</p></h1>
+    <h1><p align="center"  class="text-center">Add User!</p></h1>
     <p align="right"><a class="btn btn-info btn-xs" href="/all/users" role="button">all users page</a></p>
+    <p align="right"><a class="btn btn-info btn-xs" href="/" role="button">home page</a></p>
     <form:form method="post" action="/save/user" commandName="userForm"> <!-- /save/user -->
        <%-- <label for="id">User ID</label> --%>
         <form:input type="hidden" id="id" path="id" placeholder="User id"/>

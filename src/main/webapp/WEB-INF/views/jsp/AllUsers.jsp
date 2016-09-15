@@ -9,8 +9,9 @@
 </head>
 <body>
 <div class="container">
-    <h1><p class="text-center">All Users</p></h1>
+    <h1><p align="center" class="text-center">All Users</p></h1>
     <p align="right"><a class="btn btn-info btn-xs" href="/add/user" role="button">add user</a></p>
+    <p align="right"><a class="btn btn-info btn-xs" href="/" role="button">home page</a></p>
     <table class="table">
         <thead>
         <tr>

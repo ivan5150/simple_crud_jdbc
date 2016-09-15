@@ -1,16 +1,16 @@
 package my.app.domain;
 
-public class User {
 
+public class Profession {
     private long id;
     private String name;
 
-    public User(long id, String name) {
+    public Profession(long id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public User(String name) {
+    public Profession(String name) {
         this.name = name;
     }
 
@@ -40,4 +40,4 @@ public class User {
                 ", name='" + name + '\'' +
                 '}';
     }
-        }
+}

@@ -19,6 +19,12 @@ public class UserController {
 
     public static final String ALL_USERS_PAGE = "AllUsers";
     public static final String ADD_USER_PAGE = "AddUser";
+    public static final String HOME_PAGE = "HomePage";
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String showHomePage(ModelMap model) {
+        return HOME_PAGE;
+    }
 
     @RequestMapping(value = "/add/user", method = RequestMethod.GET)
     public String showPageAddUser(ModelMap model) {
@@ -34,7 +40,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/save/user", method = RequestMethod.POST)
-    public RedirectView saveUser(@Validated UserForm userForm, BindingResult bindingResult) {
+    public String saveUser(@Validated UserForm userForm, BindingResult bindingResult) {
 //        User user = new User(Long.parseLong(userForm.getId()), userForm.getName());
         if (isIdEmpty(userForm)) {
             User user = new User(userForm.getName());
@@ -43,7 +49,7 @@ public class UserController {
             User user = new User(Long.parseLong(userForm.getId()), userForm.getName());
             new UserServiceImpl().update(user);
         }
-        return new RedirectView("/all/users"); // for redirect may be    return "redirect:/all/users";
+        return "redirect:/all/users";
 
     }
 
