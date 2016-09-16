@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class ProfessionController {
     public static final String ALL_PROFESSIONS_PAGE = "AllProfessions";
     public static final String ADD_PROFESSION_PAGE = "AddProfession";
-   // public static final String HOME_PAGE_PROFESSION = "HomePageProfession";
+   // public static final String HOME_PAGE_PROFESSION = "HomePageProfession";//
 
     /*@RequestMapping(value = "/", method = RequestMethod.GET)
     public String showHomePage(ModelMap model) {
