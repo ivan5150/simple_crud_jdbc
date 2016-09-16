@@ -1,15 +1,14 @@
 package my.app.service;
 
 
-import my.app.domain.Profession;
 import my.app.dao.ConnectionFactory;
 import my.app.dao.ProfessionDao;
 import my.app.dao.ProfessionDaoJdbcImpl;
-
+import my.app.domain.Profession;
 
 import java.util.List;
 
-public class ProfessionServiceImpl implements ProfessionService{
+public class ProfessionServiceImpl implements ProfessionService {
     @Override
     public Profession getById(long id) {
         ProfessionDao userDao = new ProfessionDaoJdbcImpl(ConnectionFactory.getInstance());

@@ -1,12 +1,12 @@
 package my.app.service;
 
 
-        import my.app.dao.ConnectionFactory;
-        import my.app.dao.UserDao;
-        import my.app.dao.UserDaoJdbcImpl;
-        import my.app.domain.User;
+import my.app.dao.ConnectionFactory;
+import my.app.dao.UserDao;
+import my.app.dao.UserDaoJdbcImpl;
+import my.app.domain.User;
 
-        import java.util.List;
+import java.util.List;
 
 public class UserServiceImpl implements UserService {
 

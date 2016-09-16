@@ -1,6 +1,7 @@
 package my.app.dao;
 
 import my.app.domain.Profession;
+
 import java.util.List;
 
 public interface ProfessionDao {

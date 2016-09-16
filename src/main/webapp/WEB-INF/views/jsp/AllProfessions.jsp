@@ -5,12 +5,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <html>
 <head><a href="css/bootstrap.css" rel="stylesheet" media="screen"></a>
-    <title>All User</title>
+    <title>All Professions</title>
 </head>
 <body>
 <div class="container">
-    <h1><p align="center" class="text-center">All Users</p></h1>
-    <p align="right"><a class="btn btn-info btn-xs" href="/add/user" role="button">add user</a></p>
+    <h1><p align="center" class="text-center">All Professions</p></h1>
+    <p align="right"><a class="btn btn-info btn-xs" href="/add/profession" role="button">add profession</a></p>
     <p align="right"><a class="btn btn-info btn-xs" href="/" role="button">home page</a></p>
     <table class="table">
         <thead>
@@ -20,17 +20,17 @@
             <th>Actions</th>
         </tr>
         </thead>
-        <c:forEach var="user" items="${users}">
+        <c:forEach var="profession" items="${professions}">
             <thbody>
                 <tr>
-                    <td> ${user.id}</td>
-                    <td>${user.name}</td>
+                    <td> ${profession.id}</td>
+                    <td>${profession.name}</td>
                     <td>
                         <p>
-                            <a class="btn btn-danger btn-xs" href="/delete/user/${user.id}" role="button">delete</a>
-                            <a class="btn btn-default btn-xs" href="/save/user/${user.id}" role="button">edit</a>
+                            <a class="btn btn-danger btn-xs" href="/delete/profession/${profession.id}" role="button">delete</a>
+                            <a class="btn btn-default btn-xs" href="/save/profession/${profession.id}" role="button">edit</a>
                                 <%--  <a class="btn btn-info btn-xs" href="/user/save/purse/${user.id}" role="button">add</a>  --%>
-                            <a class="btn btn-info btn-xs" href="/add/user" role="button">add new user</a>
+                            <a class="btn btn-info btn-xs" href="/add/profession" role="button">add new profession</a>
                         </p>
                     </td>
                 </tr>

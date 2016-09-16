@@ -1,28 +1,30 @@
 package my.app.controllers;
 
 
-public class UserForm  {
+public class UserForm {
 
     private String id;
     private String name;
 
-    public UserForm(){}
-    public UserForm(long id){}
+    public UserForm() {
+    }
 
+    public UserForm(long id) {
+    }
 
-    public String getId(){
+    public String getId() {
         return id;
     }
 
-    public void setId(String id){
+    public void setId(String id) {
         this.id = id;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
 

@@ -40,4 +40,4 @@ public class User {
                 ", name='" + name + '\'' +
                 '}';
     }
-        }
+}

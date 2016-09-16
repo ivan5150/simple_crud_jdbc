@@ -2,15 +2,14 @@
 package my.app.controllers;
 
 import my.app.domain.User;
-//import oracle.jrockit.jfr.NativeEventControl;
+import my.app.service.UserServiceImpl;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMethod;
-import my.app.service.UserServiceImpl;
 import org.springframework.web.servlet.view.RedirectView;
 
 
