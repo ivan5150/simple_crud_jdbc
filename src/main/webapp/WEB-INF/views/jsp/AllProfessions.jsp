@@ -5,6 +5,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <html>
 <head><a href="css/bootstrap.css" rel="stylesheet" media="screen"></a>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <title>All Professions</title>
 </head>
 <body>
