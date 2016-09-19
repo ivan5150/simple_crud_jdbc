@@ -5,6 +5,7 @@ import my.app.domain.User;
 import my.app.service.UserServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,7 +41,7 @@ public class UserController {
 
     @RequestMapping(value = "/save/user", method = RequestMethod.POST)
     public String saveUser(@Validated UserForm userForm, BindingResult bindingResult) {
-        if (isIdEmpty(userForm.getId())) {
+        if (isEmpty(userForm.getId())) {                                  //if(StringUtils.isEmpty(userForm.getId())){
             User user = new User(userForm.getName());
             new UserServiceImpl().insert(user);
         } else {
@@ -49,9 +50,10 @@ public class UserController {
         }
         return "redirect:/all/users";
 
+
     }
 
-    private boolean isIdEmpty(String str) {
+    private boolean isEmpty(String str) {
         return str == null || "".equals(str);
     }
 
