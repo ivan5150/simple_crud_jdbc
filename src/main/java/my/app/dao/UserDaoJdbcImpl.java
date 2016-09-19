@@ -15,7 +15,7 @@ public class UserDaoJdbcImpl implements UserDao {
     public static final String COLUMN_NAME = "name";
     public static final String SELECT_BY_ID_QUERY = "SELECT * FROM user WHERE id = ?";
     // public static final String INSERT_USER = "INSERT INTO user (firstName, lastName) VALUES (?, ?)";
-    public static final String INSERT_USER = "INSERT INTO user (id, name) VALUES (?, ?)";
+    public static final String INSERT_USER = "INSERT INTO user (name) VALUES (?)"; //"INSERT INTO user (id, name) VALUES (?, ?)";
     public static final String SELECT_FROM_ALL_USER = "SELECT * FROM user";
     //public static final String UPDATES_USER = "UPDATE user SET firstName = ?, lastName = ? WHERE id = ?";
     public static final String UPDATES_USER = "UPDATE user SET name = ? WHERE id = ?";
@@ -77,8 +77,8 @@ public class UserDaoJdbcImpl implements UserDao {
     public void insert(User user) {
         try (Connection connection = connectionFactory.getConnection();
              PreparedStatement statement = connection.prepareStatement(INSERT_USER);) {
-            statement.setLong(1, user.getId());
-            statement.setString(2, user.getName());
+            //statement.setLong(1, user.getId());
+            statement.setString(1, user.getName());
             int i = statement.executeUpdate();
             if (i == 0) {
                 throw new DaoException("Table 'user' was not updated", null);
@@ -92,8 +92,8 @@ public class UserDaoJdbcImpl implements UserDao {
     public void update(User user) {
         try (Connection connection = connectionFactory.getConnection();
              PreparedStatement statement = connection.prepareStatement(UPDATES_USER);) {
-            statement.setLong(1, user.getId());
-            statement.setString(2, user.getName());
+            statement.setString(1, user.getName());
+            statement.setLong(2, user.getId());
             statement.executeUpdate();
         } catch (Exception e) {
             throw new DaoException(String.format("Method update(user: '%d') has throw an exception.", user), e);

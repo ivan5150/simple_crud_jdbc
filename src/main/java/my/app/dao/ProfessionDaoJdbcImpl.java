@@ -14,11 +14,11 @@ public class ProfessionDaoJdbcImpl implements ProfessionDao {
     public static final String COLUMN_NAME = "name";
     public static final String SELECT_BY_ID_QUERY = "SELECT * FROM profession WHERE id = ?";
     // public static final String INSERT_USER = "INSERT INTO profession (firstName, lastName) VALUES (?, ?)";
-    public static final String INSERT_USER = "INSERT INTO profession (id, name) VALUES (?, ?)";
-    public static final String SELECT_FROM_ALL_USER = "SELECT * FROM profession";
+    public static final String INSERT_PROFESSION = "INSERT INTO profession (name) VALUES (?)";
+    public static final String SELECT_FROM_ALL_PROFESSIONS = "SELECT * FROM profession";
     //public static final String UPDATES_USER = "UPDATE profession SET firstName = ?, lastName = ? WHERE id = ?";
-    public static final String UPDATES_USER = "UPDATE profession SET name = ? WHERE id = ?";
-    public static final String DELETE_USER = "DELETE FROM profession WHERE id = ?";
+    public static final String UPDATES_PROFESSION = "UPDATE profession SET name = ? WHERE id = ?";
+    public static final String DELETE_PROFESSION = "DELETE FROM profession WHERE id = ?";
 
 
     private ConnectionFactory connectionFactory;
@@ -54,7 +54,7 @@ public class ProfessionDaoJdbcImpl implements ProfessionDao {
         List<Profession> user = new ArrayList<>();
         try (Connection connection = connectionFactory.getConnection();
              Statement statement = connection.createStatement();) {
-            try (ResultSet resultSet = statement.executeQuery(SELECT_FROM_ALL_USER);) {
+            try (ResultSet resultSet = statement.executeQuery(SELECT_FROM_ALL_PROFESSIONS);) {
                 while (resultSet.next()) {
                     user.add(new Profession(resultSet.getLong(COLUMN_ID),
                             resultSet.getString(COLUMN_NAME)));
@@ -69,9 +69,9 @@ public class ProfessionDaoJdbcImpl implements ProfessionDao {
     @Override
     public void insert(Profession profession) {
         try (Connection connection = connectionFactory.getConnection();
-             PreparedStatement statement = connection.prepareStatement(INSERT_USER);) {
-            statement.setLong(1, profession.getId());
-            statement.setString(2, profession.getName());
+             PreparedStatement statement = connection.prepareStatement(INSERT_PROFESSION);) {
+            //statement.setLong(1, profession.getId());
+            statement.setString(1, profession.getName());
             int i = statement.executeUpdate();
             if (i == 0) {
                 throw new DaoException("Table 'profession' was not updated", null);
@@ -84,9 +84,9 @@ public class ProfessionDaoJdbcImpl implements ProfessionDao {
     @Override
     public void update(Profession profession) {
         try (Connection connection = connectionFactory.getConnection();
-             PreparedStatement statement = connection.prepareStatement(UPDATES_USER);) {
-            statement.setLong(1, profession.getId());
-            statement.setString(2, profession.getName());
+             PreparedStatement statement = connection.prepareStatement(UPDATES_PROFESSION);) {
+            statement.setString(1, profession.getName());
+            //statement.setLong(2, profession.getId());
             statement.executeUpdate();
         } catch (Exception e) {
             throw new DaoException(String.format("Method update(user: '%d') has throw an exception.", profession), e);
@@ -96,7 +96,7 @@ public class ProfessionDaoJdbcImpl implements ProfessionDao {
     @Override
     public void deleteById(long id) {
         try (Connection connection = connectionFactory.getConnection();
-             PreparedStatement statement = connection.prepareStatement(DELETE_USER);) {
+             PreparedStatement statement = connection.prepareStatement(DELETE_PROFESSION);) {
             statement.setLong(1, id);
             statement.executeUpdate();
         } catch (Exception e) {

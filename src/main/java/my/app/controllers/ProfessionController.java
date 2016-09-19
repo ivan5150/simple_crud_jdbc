@@ -37,7 +37,7 @@ public class ProfessionController {
 
     @RequestMapping(value = "/save/profession", method = RequestMethod.POST)
     public String saveProfession(@Validated ProfessionForm professionForm, BindingResult bindingResult) {
-        if (isIdEmpty(professionForm)) {
+        if (isIdEmpty(professionForm.getId())) {
             Profession profession = new Profession(professionForm.getName());
             new ProfessionServiceImpl().insert(profession);
         } else {
@@ -48,8 +48,8 @@ public class ProfessionController {
 
     }
 
-    private boolean isIdEmpty(@Validated ProfessionForm professionForm) {
-        return professionForm.getId() == null || "".equals(professionForm.getId());
+    private boolean isIdEmpty(String str) {
+        return str == null || "".equals(str);
     }
 
     @RequestMapping(value = "/delete/profession/{id}", method = RequestMethod.GET)

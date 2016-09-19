@@ -40,8 +40,7 @@ public class UserController {
 
     @RequestMapping(value = "/save/user", method = RequestMethod.POST)
     public String saveUser(@Validated UserForm userForm, BindingResult bindingResult) {
-//        User user = new User(Long.parseLong(userForm.getId()), userForm.getName());
-        if (isIdEmpty(userForm)) {
+        if (isIdEmpty(userForm.getId())) {
             User user = new User(userForm.getName());
             new UserServiceImpl().insert(user);
         } else {
@@ -52,8 +51,8 @@ public class UserController {
 
     }
 
-    private boolean isIdEmpty(@Validated UserForm userForm) {
-        return userForm.getId() == null || "".equals(userForm.getId());
+    private boolean isIdEmpty(String str) {
+        return str == null || "".equals(str);
     }
 
     @RequestMapping(value = "/delete/user/{id}", method = RequestMethod.GET)
