@@ -41,7 +41,7 @@ public class UserController {
 
     @RequestMapping(value = "/save/user", method = RequestMethod.POST)
     public String saveUser(@Validated UserForm userForm, BindingResult bindingResult) {
-        if (isEmpty(userForm.getId())) {                                  //if(StringUtils.isEmpty(userForm.getId())){
+        if (isEmpty(userForm.getId())) {                                 //if(StringUtils.isEmpty(userForm.getId())){
             User user = new User(userForm.getName());
             new UserServiceImpl().insert(user);
         } else {
