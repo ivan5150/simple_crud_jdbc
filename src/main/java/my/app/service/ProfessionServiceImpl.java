@@ -9,33 +9,37 @@ import my.app.domain.Profession;
 import java.util.List;
 
 public class ProfessionServiceImpl implements ProfessionService {
+    public static final String DB_URL = "jdbc:h2:file:D:/!R/crud_last/simple_crud_jdbc/db/test";
+    public static final String LOGIN = "sa";
+    public static final String PASSWORD = "";
+
     @Override
     public Profession getById(long id) {
-        ProfessionDao userDao = new ProfessionDaoJdbcImpl(ConnectionFactory.getInstance());
-        return userDao.getById(id);
+        ProfessionDao professionDao = new ProfessionDaoJdbcImpl(ConnectionFactory.getInstance(DB_URL, LOGIN, PASSWORD));
+        return professionDao.getById(id);
     }
 
     @Override
     public List<Profession> getAll() {
-        ProfessionDao userDao = new ProfessionDaoJdbcImpl(ConnectionFactory.getInstance());
-        return userDao.getAll();
+        ProfessionDao professionDao = new ProfessionDaoJdbcImpl(ConnectionFactory.getInstance(DB_URL, LOGIN, PASSWORD));
+        return professionDao.getAll();
     }
 
     @Override
     public void insert(Profession profession) {
-        ProfessionDao userDao = new ProfessionDaoJdbcImpl(ConnectionFactory.getInstance());
-        userDao.insert(profession);
+        ProfessionDao professionDao = new ProfessionDaoJdbcImpl(ConnectionFactory.getInstance(DB_URL, LOGIN, PASSWORD));
+        professionDao.insert(profession);
     }
 
     @Override
     public void update(Profession profession) {
-        ProfessionDao userDao = new ProfessionDaoJdbcImpl(ConnectionFactory.getInstance());
-        userDao.update(profession);
+        ProfessionDao professionDao = new ProfessionDaoJdbcImpl(ConnectionFactory.getInstance(DB_URL, LOGIN, PASSWORD));
+        professionDao.update(profession);
     }
 
     @Override
     public void deleteById(long id) {
-        ProfessionDao userDao = new ProfessionDaoJdbcImpl(ConnectionFactory.getInstance());
-        userDao.deleteById(id);
+        ProfessionDao professionDao = new ProfessionDaoJdbcImpl(ConnectionFactory.getInstance(DB_URL, LOGIN, PASSWORD));
+        professionDao.deleteById(id);
     }
 }

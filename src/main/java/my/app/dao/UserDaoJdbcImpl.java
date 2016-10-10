@@ -20,6 +20,7 @@ public class UserDaoJdbcImpl implements UserDao {
     //public static final String UPDATES_USER = "UPDATE user SET firstName = ?, lastName = ? WHERE id = ?";
     public static final String UPDATES_USER = "UPDATE user SET name = ? WHERE id = ?";
     public static final String DELETE_USER = "DELETE FROM user WHERE id = ?";
+    public static final String DELETE_ALL = "DELETE FROM user";
 
 
     public static final String KEYWORD_FOR_EXIT = "--stop";
@@ -110,4 +111,13 @@ public class UserDaoJdbcImpl implements UserDao {
             throw new DaoException(String.format("Method deleteById(id: '%d') has throw an exception.", id), e);
         }
     }
-}
+        @Override
+        public void deleteAll() {
+            try (Connection connection = connectionFactory.getConnection();
+                 PreparedStatement statement = connection.prepareStatement(DELETE_ALL);) {
+                statement.executeUpdate();
+            } catch (Exception e) {
+                throw new DaoException(String.format("Method deleteAll has throw an exception."), e);
+            }
+        }
+    }

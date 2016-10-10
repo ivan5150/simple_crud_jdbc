@@ -43,7 +43,7 @@ public class ConnectionFactory {
     }
 
     public Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(DB_URL, LOGIN, PASSWORD);
-        //return DriverManager.getConnection(url, name, password);
+        //return DriverManager.getConnection(DB_URL, LOGIN, PASSWORD);
+        return DriverManager.getConnection(url, name, password);
     }
 }
