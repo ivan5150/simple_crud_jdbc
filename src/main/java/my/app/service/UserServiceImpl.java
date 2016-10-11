@@ -43,4 +43,10 @@ public class UserServiceImpl implements UserService {
         UserDao userDao = new UserDaoJdbcImpl(ConnectionFactory.getInstance(DB_URL, LOGIN, PASSWORD));
         userDao.deleteById(id);
     }
+
+    @Override
+    public void deleteAll() {
+        UserDao userDao = new UserDaoJdbcImpl(ConnectionFactory.getInstance(DB_URL, LOGIN, PASSWORD));
+        userDao.deleteAll();
+    }
 }
